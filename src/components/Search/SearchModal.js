@@ -17,7 +17,7 @@ class SearchModal extends Component {
             return null
         } else if (!query.length) {
             return (
-                <ul >
+                <ul className='searchBox' >
                     <li>Type some Stuff</li> 
                 </ul>
             )
@@ -26,7 +26,7 @@ class SearchModal extends Component {
         let render = this.state.array.filter( x => x.startsWith(query))
 
         return (
-            <ul >
+            <ul className='searchBox'>
                 {render.map( x => <li>{x}</li>)}
             </ul>
         )

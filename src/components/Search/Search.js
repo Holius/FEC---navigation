@@ -27,37 +27,35 @@ class Search extends Component {
       };
 
 
-    handleClick() {
-        if (!this.state.show) {
+    handleClick(e) {
+        if (this.state.show === false) {
           // attach/remove event handler
+          console.log('set to true')
           document.addEventListener('click', this.handleOutsideClick, false);
-        } else {
+          this.setState({show: true})
+        }
+         else if (this.state.show === true && this.myRef.current.contains(e.target) === false) {
           document.removeEventListener('click', this.handleOutsideClick, false);
         }
-    
-        this.toggleShow.call(this)
       }
       
       handleOutsideClick(e) {
-       
-        // ignore clicks on the component itself
         if (this.myRef.current.contains(e.target)) {
           return;
         }
-        
-        this.handleClick();
+        this.setState({show: false})
       }
       
       render() {
           return (
                 <div ref={this.myRef}> 
                 <input 
-                type='text' 
-                value={this.state.query}
-                onChange={this.onSearchChange.bind(this)}
-                onClick={this.handleClick.bind(this)}
-            >
-            </input> 
+                  className={'searchBar'}
+                  type='text' 
+                  value={this.state.query}
+                  onChange={this.onSearchChange.bind(this)}
+                  onClick={this.handleClick.bind(this)}
+                />
             <button onClick={(e) => {
                 this.toggleShow();
             }}>Q

@@ -1,5 +1,83 @@
 body {
     background-color: aqua;
 }
+
+.searchBar { 
+    width: 70%
+}
   
-  
+.searchBox {
+    background-color: white;
+    width: 70%;
+    list-style-type: none;
+    border-radius: 10%;
+    border: 1px solid lightgray; 
+}
+
+.extendBox {
+    margin: auto;
+    width: 90%;
+    background-color: white;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 1 rem;
+    
+}
+
+ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+li {
+    list-style-type: none ;
+}
+
+.box1 {
+    flex-basis: 35%;
+    border-right: 1px solid lightgray;
+}
+
+.tableNav {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tableNav td:nth-child(even) {
+    color:black;
+    text-align: end;
+    font-weight: 900;
+    padding-right: 2%;
+}
+
+.box1 td {
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-left: 2%;
+
+}
+
+.box1 tr:hover {
+    background-color: grey;
+}
+
+
+.chevron {
+    margin-right:2.5%;
+}
+
+.box2 {
+    flex-basis: 20%;
+
+}
+
+.box3 {
+    flex-basis: 20%;
+}
+
+.box4 {
+    flex-basis: 25%;
+    
+}
