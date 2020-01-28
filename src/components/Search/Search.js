@@ -48,7 +48,10 @@ class Search extends Component {
       
       render() {
           return (
-                <div ref={this.myRef}> 
+                <div 
+                  ref={this.myRef}
+                  className={'SearchBarFull'}
+                  > 
                 <input 
                   className={'searchBar'}
                   type='text' 
