@@ -85,3 +85,21 @@ li {
     flex-basis: 25%;
     
 }
+
+
+
+
+
+
+
+.NavBar {
+    display: flex;
+    justify-content: center;
+}
+
+.NavBar li {
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
