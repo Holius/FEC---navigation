@@ -5,7 +5,7 @@ function Box3 (props) {
         
 <div className={'box3'}>
 <ul>
-    <li>great</li>
+    <li>{props.data}</li>
     <li>great </li>
     <li>great</li>
     <li>great</li>

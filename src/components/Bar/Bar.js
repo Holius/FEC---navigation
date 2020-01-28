@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import HoverModal from './HoverModal';
-
+import NavBar from './NavBar';
 
 
 class Bar extends Component {
@@ -13,6 +13,7 @@ class Bar extends Component {
 
     render () {
         return (
+            <NavBar/>
             <HoverModal/> 
         )
     }

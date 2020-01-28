@@ -45,6 +45,10 @@ li {
     border-collapse: collapse;
 }
 
+.tableNav tr:first-child :active {
+    color: yellow;
+}
+
 .tableNav td:nth-child(even) {
     color:black;
     text-align: end;
