@@ -18,15 +18,20 @@ class HoverModal extends Component {
     }
 
     render () {
-        let {data} = this.props;
+        const {data, onOutsideHoverModal, onInsideHoverModal} = this.props;
     return (
-        <div className={'extendBox'}> 
+        <div 
+            className={'extendBox'}
+            onMouseLeave={onOutsideHoverModal}
+            onMouseEnter={onInsideHoverModal}
+        > 
             <Box1
                 data={data}
                 onRowHover={this.onRowHover.bind(this)}
             /> 
             <Box2 
                 data={data.categories[this.state.selected].box2}
+
             />
             <Box3
                 data={data.categories[this.state.selected].box3}

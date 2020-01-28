@@ -25,7 +25,7 @@ class Bar extends Component {
                 {
                     header: 'Different -->',
                     categories: [
-                        {title: 'Accessories', box2: '1a', box3: '1b'},
+                        {title: '2', box2: '1a', box3: '1b'},
                         {title: 'Bags & Purses', box2: '2a', box3: '2b'},
                         {title: 'Necklaces', box2: '3a', box3: '3b'},
                         {title: 'Rings', box2: '4a', box3: '4b'},
@@ -37,7 +37,7 @@ class Bar extends Component {
                 {
                     header: 'Also differnt -->',
                     categories: [
-                        {title: 'Accessories', box2: '1a', box3: '1b'},
+                        {title: '3', box2: '1a', box3: '1b'},
                         {title: 'Bags & Purses', box2: '2a', box3: '2b'},
                         {title: 'Necklaces', box2: '3a', box3: '3b'},
                         {title: 'Rings', box2: '4a', box3: '4b'},
@@ -49,7 +49,7 @@ class Bar extends Component {
                 {
                     header: 'Still different -->',
                     categories: [
-                        {title: 'Accessories', box2: '1a', box3: '1b'},
+                        {title: '4', box2: '1a', box3: '1b'},
                         {title: 'Bags & Purses', box2: '2a', box3: '2b'},
                         {title: 'Necklaces', box2: '3a', box3: '3b'},
                         {title: 'Rings', box2: '4a', box3: '4b'},
@@ -59,20 +59,48 @@ class Bar extends Component {
                     ]
                 }
             ],
+            insideHoverModal: false,
+            insideNavBar: false,
           }
+         // this.mainBar = React.createRef();
+          //this.mainBar2 = React.createRef();
         }
-
 
     onSelect (i) {
         this.setState({currentTab: this.state.generate[i]})
     }
+
+    onOutsideHoverModal () {
+        Promise.resolve(this.setState({insideHoverModal: false})).then( val => {
+        if (!this.state.insideNavBar) {
+            this.setState({currentTab:null})
+        }})
+    }
+
+    onOutsideNavBar (e) {
+        Promise.resolve(this.setState({insideNavBar: false})).then( val => {
+        if (!this.state.insideHoverModal) {
+            this.setState({currentTab:null})
+         } })
+    }
+
+    onInsideHoverModal () {
+        this.setState({insideHoverModal: true})
+    }
+
+    onInsideNavBar () {
+        this.setState({insideNavBar: true})
+    }
+
 
     render () {
         if (this.state.currentTab === null) {
             return (
                 <div>
                 <NavBar
-                    onSelect={this.onSelect.bind(this)}
+                     onSelect={this.onSelect.bind(this)}
+                     onOutsideNavBar={this.onOutsideNavBar.bind(this)}
+                     onInsideNavBar={this.onInsideNavBar.bind(this)}
                 />      
             </div> 
             )
@@ -81,10 +109,14 @@ class Bar extends Component {
                 <div>
                     <NavBar
                         onSelect={this.onSelect.bind(this)}
+                        onOutsideNavBar={this.onOutsideNavBar.bind(this)}
+                        onInsideNavBar={this.onInsideNavBar.bind(this)}
                     />
                     {
                     <HoverModal
                         data={this.state.currentTab}
+                        onOutsideHoverModal={this.onOutsideHoverModal.bind(this)}
+                        onInsideHoverModal={this.onInsideHoverModal.bind(this)}
                     />
                     }       
                 </div> 

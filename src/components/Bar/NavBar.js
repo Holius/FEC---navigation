@@ -1,19 +1,26 @@
 import React from 'react';
 
 function NavBar (props) {
-    const {onSelect} = props;
+    const {onInsideNavBar, onOutsideNavBar, onSelect} = props;
     const tabHeading = ['Gryffindor', 'Slytherin', 'Ravenclaw', 'HufflePuff']
     const display = [];
     for (let i = 0; i < tabHeading.length; i++) {
         const index = i;
         display.push(
-            <li onMouseEnter={onSelect.bind(this, index)} key={i}>
+            <li 
+                onMouseEnter={onSelect.bind(null,index)}
+                key={i}
+
+            >
                 {tabHeading[i]}
             </li>
         )
     }
     return (
-        <div >
+        <div
+            onMouseEnter={onInsideNavBar} 
+            onMouseLeave={onOutsideNavBar}
+        >
             <ul className='NavBar'>
                 {display}
             </ul>
