@@ -36,7 +36,10 @@ class HoverModal extends Component {
             <Box3
                 data={data.categories[this.state.selected].box3}
             />
-            <Box4/>
+            <Box4
+                data={data.image}
+                caption={data.caption}
+            />
         </div>
         )
     }

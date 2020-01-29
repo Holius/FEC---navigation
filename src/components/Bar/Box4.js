@@ -4,12 +4,15 @@ function Box4 (props) {
     return (
         
 <div className={'box4'}>
-<ul>
-    <li>image</li>
-    <li>image </li>
-    <li>image</li>
-    <li>image</li>
-</ul>  
+<figure className={'modalFigure'}>
+    <img 
+        src={props.data}
+        className={'modalImage'}
+    />
+    <figcaption>Professor's Picks <br/> 
+        <span className={'profPick'}>{props.caption}</span>
+    </figcaption>
+</figure>  
 </div>
     )
 }

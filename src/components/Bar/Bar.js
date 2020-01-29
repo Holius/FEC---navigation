@@ -12,6 +12,8 @@ class Bar extends Component {
             [
                 {
                     header: 'All Jewelry & Accessories -->',
+                    image: '/gryffindor.jpg',
+                    caption: 'Ear Wax',
                     categories: [
                         {title: 'Accessories', box2: '1a', box3: '1b'},
                         {title: 'Bags & Purses', box2: '2a', box3: '2b'},
@@ -24,6 +26,8 @@ class Bar extends Component {
                 },
                 {
                     header: 'Different -->',
+                    image: '/slytherin.jpg',
+                    caption: 'Snake Oil',
                     categories: [
                         {title: '2', box2: '1a', box3: '1b'},
                         {title: 'Bags & Purses', box2: '2a', box3: '2b'},
@@ -36,6 +40,8 @@ class Bar extends Component {
                 },
                 {
                     header: 'Also differnt -->',
+                    image: '/ravenclaw.jpg',
+                    caption: 'Bookmarks',
                     categories: [
                         {title: '3', box2: '1a', box3: '1b'},
                         {title: 'Bags & Purses', box2: '2a', box3: '2b'},
@@ -48,6 +54,8 @@ class Bar extends Component {
                 },
                 {
                     header: 'Still different -->',
+                    image: '/hufflepuff.jpg',
+                    caption: 'Scarf',
                     categories: [
                         {title: '4', box2: '1a', box3: '1b'},
                         {title: 'Bags & Purses', box2: '2a', box3: '2b'},
@@ -91,7 +99,6 @@ class Bar extends Component {
     onInsideNavBar () {
         this.setState({insideNavBar: true})
     }
-
 
     render () {
         if (this.state.currentTab === null) {

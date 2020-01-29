@@ -5,29 +5,34 @@ class SearchModal extends Component {
         super(props);
         this.mainRef = React.createRef();
         this.state = { 
-            array: [
-            'a','b','bb','c','d'
-            ],
+            array: [],
+            current: [],
         }
     }
 
     render () {
-        let {query, show} = this.props;
+        let {query, show, current, popular} = this.props;
         if (!show) {
             return null
-        } else if (!query.length) {
+        } 
+        else if (!query.length) {
             return (
                 <ul className='searchBox' >
-                    <li>Type some Stuff</li> 
+                    <li>Popular Right Now</li> 
+                    {popular.map(x => <li>{x.title}</li>)}
+                </ul>
+            )
+        } else if (!current.length) {
+            return (
+                <ul className='searchBox'>
+                    <li>find shop names containing '{query}'</li>
                 </ul>
             )
         }
         else {
-        let render = this.state.array.filter( x => x.startsWith(query))
-
         return (
             <ul className='searchBox'>
-                {render.map( x => <li>{x}</li>)}
+                {current.map( x => <li>{x}</li>)}
             </ul>
         )
         }
