@@ -70,9 +70,8 @@ class Bar extends Component {
             insideHoverModal: false,
             insideNavBar: false,
           }
-         // this.mainBar = React.createRef();
-          //this.mainBar2 = React.createRef();
-        }
+        
+}
 
     onSelect (i) {
         this.setState({currentTab: this.state.generate[i]})

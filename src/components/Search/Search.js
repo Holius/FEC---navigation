@@ -70,6 +70,7 @@ class Search extends Component {
 
 
     handleClick(e) {
+        e.preventDefault();
         if (this.state.show === false) {
           document.addEventListener('click', this.handleOutsideClick, false);
           this.setState({show: true})
@@ -100,10 +101,12 @@ class Search extends Component {
                   onChange={this.onSearchChange.bind(this)}
                   onClick={this.handleClick.bind(this)}
                 />
-            <button onClick={(e) => {
-                this.toggleShow();
-            }}>Q
-            </button>
+            <input 
+              className={'searchButton'}
+              type="image" 
+              src="blackmg.jpg" 
+              alt="Search"
+            />
             <SearchModal
                 show={this.state.show}
                 query={this.state.query}
