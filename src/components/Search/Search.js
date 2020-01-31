@@ -93,20 +93,21 @@ class Search extends Component {
                   ref={this.myRef}
                   className={'SearchBarFull'}
                   > 
-                <input 
-                  className={'searchBar'}
-                  type='text' 
-                  value={this.state.query}
-                  placeholder='Search for items or shops'
-                  onChange={this.onSearchChange.bind(this)}
-                  onClick={this.handleClick.bind(this)}
-                />
-            <input 
-              className={'searchButton'}
-              type="image" 
-              src="blackmg.jpg" 
-              alt="Search"
-            />
+                  <div className={'searchBarButton'}>
+                    <input 
+                      className={'searchBar'}
+                      type='text' 
+                      value={this.state.query}
+                      placeholder='Search for items or shops'
+                      onChange={this.onSearchChange.bind(this)}
+                      onClick={this.handleClick.bind(this)}
+                    />
+                    <input
+                      type='image'
+                      className={'searchButton'}
+                      src="mg.png"
+                    />
+                </div>
             <SearchModal
                 show={this.state.show}
                 query={this.state.query}

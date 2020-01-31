@@ -23,7 +23,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/api/searchItems', (req,res) => {
     connection.query('SELECT * FROM search', function (error, results) {
-        console.log(error, results, 'hi')
         if (error) {
           res.status(404).send(error)
         };

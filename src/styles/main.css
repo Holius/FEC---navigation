@@ -13,14 +13,25 @@ body {
     margin-top: 1%;
 }
 
-.searchBar { 
+.searchBarButton {
     width: 70%;
-    margin-left: auto;
+    position: relative;
+}
+
+.searchBar { 
+    width: 100%;
+    height:100%;
+    
+    box-sizing: border-box;
+
+    /* margin-left: auto;
     margin-right: auto;
     left: 0;
-    right: 0;
+    right: 0; */
+    padding-top: 1.25%;
+    padding-left: 1.25%;
+    padding-bottom: 1.25%;
     background-color: rgb(240, 240, 240);
-    padding: 1.25%;
     border-left: solid 1px rgb(170, 170, 170);
     border-top: solid 1px rgb(170, 170, 170);
     border-bottom: solid 1px rgb(170, 170, 170);
@@ -28,17 +39,53 @@ body {
     
     -moz-border-radius-topleft: 20px;
     -moz-border-radius-bottomleft: 20px;
-    -moz-border-radius-topright: 0px;
+    -moz-border-radius-topright: 20px;
     -moz-border-radius-bottomright: 0px;
+
     -webkit-border-top-left-radius: 20px;
-    -webkit-border-top-right-radius: 0px;
+    -webkit-border-top-right-radius: 20px;
+    -webkit-border-bottom-right-radius: 20px;
     -webkit-border-bottom-left-radius: 20px;
-    -webkit-border-bottom-right-radius: 00px;
+
 }
 
 .searchBar:focus {
     background-color: white;
     border: solid 1px black;
+}
+
+.searchButton {
+    height: 97%;
+    width: 5%;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgb(240, 240, 240);
+    position: absolute;
+    
+
+
+    border-right: solid 1px rgb(170, 170, 170);
+    border-top: solid 1px rgb(170, 170, 170);
+    border-bottom: solid 1px rgb(170, 170, 170);
+
+    -moz-border-radius-topleft: 0px;
+    -moz-border-radius-bottomleft: 0px;
+    -moz-border-radius-topright: 20px;
+    -moz-border-radius-bottomright: 20px;
+
+    -webkit-border-top-left-radius: 0px;
+    -webkit-border-top-right-radius: 20px;
+    -webkit-border-bottom-right-radius: 20px;
+    -webkit-border-bottom-left-radius: 0px;
+}
+
+.searchButton:hover {
+    background-color: rgb(224, 224, 224, 1);
+}
+
+.searchButton:hover .searchBar:hover {
+    border: 1px solid black;
 }
 
 .searchBox {
@@ -68,7 +115,6 @@ body {
     justify-content: space-between;
     font-size: 1 rem;
     position: absolute;
-    justify-content: center;
 }
 
 ul {
@@ -129,16 +175,15 @@ li {
 .box4 {
     flex-basis: 25%;
     border-left: 1px solid black;
-    
 }
 
 
 .modalFigure {
-    margin-left: 36%;
-    margin-top: 2%;
-    margin-right: 2%;
     color: rgba(153,161,168,1);
     font-size: 1rem;
+    float: right;
+    margin-right: 3%;
+    margin-top: 3%;
     padding: 1%;
 }
 
