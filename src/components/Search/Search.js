@@ -89,11 +89,14 @@ class Search extends Component {
       
       render() {
           return (
-                <div 
+                <header 
                   ref={this.myRef}
                   className={'SearchBarFull'}
                   > 
+                  
                   <div className={'searchBarButton'}>
+                    <h2 className={'websiteLogo'}>Hogwartsey</h2>
+                    <div className={'searchBoth'}>
                     <input 
                       className={'searchBar'}
                       type='text' 
@@ -107,6 +110,14 @@ class Search extends Component {
                       className={'searchButton'}
                       src="mg.png"
                     />
+                    <i class="fas fa-search"></i>
+                   </div> 
+                    <h4 className={'signIn'}>Sign in</h4>
+                    <input
+                      type='image'
+                      className={'cart'}
+                      src="broom.png"
+                    />
                 </div>
             <SearchModal
                 show={this.state.show}
@@ -114,7 +125,7 @@ class Search extends Component {
                 current={this.state.current}
                 popular={this.state.popular}
               />
-          </div>
+          </header>
           );
       }
 
