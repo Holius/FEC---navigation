@@ -14,22 +14,49 @@ function Box1 (props) {
             <td>
                 {data.categories[i].title}
             </td>
-            <td>
-                >
+            <td className={'chevron'}>
+            <img src="greaterThan.png"/>
             </td>
         </tr>
         )
     }
     console.log(array)
-    return (
+    if (data.footer !== undefined) {
+            return (
         <div className={'box1'}> 
+           <div className={'headerRow'}>
+               <h4>{data.header} 
+                    <span>{'\u2b95'}</span>
+                </h4>
+            </div>
             <table className={'tableNav'}>
                 <tbody> 
                     {array}
                 </tbody>
             </table>
+            <div className={'headerRow'}>
+               <h4>{data.footer} 
+                    <span>{'\u2b95'}</span>
+                </h4>
+            </div>
         </div>
     )
+    } else {
+        return (
+            <div className={'box1'}> 
+               <div className={'headerRow'}>
+                   <h4>{data.header} 
+                        <span>{'\u2b95'}</span>
+                    </h4>
+                </div>
+                <table className={'tableNav'}>
+                    <tbody> 
+                        {array}
+                    </tbody>
+                </table>
+            </div>
+        )
+    }
 }
 
 export default Box1

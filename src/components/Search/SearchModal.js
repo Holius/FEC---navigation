@@ -18,7 +18,7 @@ class SearchModal extends Component {
         else if (!query.length) {
             return (
                 <ul className='searchBox' >
-                    <li>Popular Right Now</li> 
+                    <p>Popular Right Now</p> 
                     {popular.map(x => <li>{x.title}</li>)}
                 </ul>
             )
