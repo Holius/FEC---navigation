@@ -8,13 +8,19 @@ function Box2 (props) {
     for (let i = 0; i < data.length; i++) {
         if (data[i].main === true) {
             box2.push(
-                <li className={'main'}>
+                <li 
+                    className={'main'}
+                    key={i}
+                >
                     {data[i].title}
                 </li>
             )
         } else {
             box2.push(
-                <li className={'sub'}>
+                <li 
+                    className={'sub'}
+                    key={i}    
+                >
                     {data[i].title}
                 </li>
             )

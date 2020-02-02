@@ -162,7 +162,6 @@ class Search extends Component {
                       >
                         </input>
                     </Link>
-                    <i class="fas fa-search"></i>
                    </div> 
                     <h4 className={'signIn'}>Sign in</h4>
                     <input

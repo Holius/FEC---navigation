@@ -10,6 +10,7 @@ function Box1 (props) {
         <tr 
             className={'rowNav'}
             onMouseEnter={onRowHover.bind(this, i)}
+            key={i}
         >
             <td>
                 {data.categories[i].title}

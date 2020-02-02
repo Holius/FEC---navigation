@@ -7,20 +7,29 @@ function Box3 (props) {
     for (let i = 0; i < data.length; i++) {
         if (data[i].main === true) {
             box3.push(
-                <li className={'main'}>
+                <li 
+                    className={'main'}
+                    key={i}
+                >
                     {data[i].title}
                 </li>
             )
         } else {
             box3.push(
-                <li className={'sub'}>
+                <li 
+                    className={'sub'}
+                    key={i}
+                >
                     {data[i].title}
                 </li>
             )
         }
     }
     box3.push(
-        <div className={'headerRow'}>
+        <div 
+            className={'headerRow'}
+            key={data.length}
+        >
             <p className={'main'}>{footer} 
                 <span>{'\u2b95'}</span>
             </p>

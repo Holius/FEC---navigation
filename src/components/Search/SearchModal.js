@@ -18,7 +18,11 @@ class SearchModal extends Component {
             return (
                 <ul className='searchBox' >
                     <p>Popular Right Now</p> 
-                    {popular.map(x => <li onClick={onHoverSubmit.bind(null, event, x.listing_id, x.title)}>
+                    {popular.map( (x,i) => 
+                        <li 
+                            onClick={onHoverSubmit.bind(null, event, x.listing_id, x.title)}
+                            key={i}
+                        >
                         <Link to={`/${x.listing_id}`}>
                             {x.title}
                         </Link>
