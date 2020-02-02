@@ -12,6 +12,7 @@ class Search extends Component {
             popular: [],
             query: '',
             show: false,
+            listingId: null,
         }
         this.myRef = React.createRef();
         this.handleClick = this.handleClick.bind(this);
@@ -19,6 +20,15 @@ class Search extends Component {
     };
 
     componentDidMount () {
+      window.addEventListener("itemChanged", event => {
+        this.setState({ listingId: Number(event.detail.listingId) }, () =>
+          console.log('hi')
+        );
+      });
+      this.getSearchItems();     
+  }
+
+    getSearchItems () {
       axios.get('/api/searchItems')
       .then( results => {
          this.setState({ array: results.data})
@@ -28,7 +38,35 @@ class Search extends Component {
       .catch( error => {
           console.error(error);
       });
-  }
+    }
+
+    onSubmit (event) {
+      const compare = this.state.query;
+      let id = 0;
+      const array = this.state.array;
+      for (let i = 0; i < this.state.array.length; i++) {
+        if (compare.toLowerCase() === array[i].title.toLowerCase()) {
+          id = array[i].listing_id;
+          break;
+        }
+      }
+      this.setState({query: ''});
+      if (id !== 0) {
+        this.onListingId(event, id) 
+      }
+    } 
+
+    onListingId(e, listingId) {
+      
+      // create custom event called itemChanged
+      const event = new CustomEvent("itemChanged", {
+        detail: {
+          listingId
+        }
+      });
+      // dispatch the event
+      window.dispatchEvent(event);
+    }
 
     getTopTenQueries (array) {
       let top = array.sort( (a,b) => {
@@ -109,6 +147,7 @@ class Search extends Component {
                       type='image'
                       className={'searchButton'}
                       src="mg.png"
+                      onClick={this.onSubmit.bind(this, event)}
                     />
                     <i class="fas fa-search"></i>
                    </div> 
@@ -132,3 +171,29 @@ class Search extends Component {
     }
 
 export default Search;
+
+
+// /************************************************************************
+//  put this event listener in componentDidMount() {}
+// ************************************************************************/
+// window.addEventListener("itemChanged", event => {
+//   this.setState({ listingId: Number(event.detail.listingId) }, () =>
+//     // call your own get data function. Mine was called getListingReviews
+//     this.getListingReviews()
+//   );
+// });
+// /************************************************************************
+//  whenever you call a handler function that changes the url
+//  ************************************************************************/
+// onSubmit(e, listingId) {
+//   this.setState({query: ''})
+  
+//   // create custom event called itemChanged
+//   const event = new CustomEvent("itemChanged", {
+//     detail: {
+//       listingId
+//     }
+//   });
+//   // dispatch the event
+//   window.dispatchEvent(event);
+// }
