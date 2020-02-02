@@ -47,27 +47,3 @@ class SearchModal extends Component {
 }
 
 export default SearchModal;
-
-
-  
-   
-  
-//     render() {
-//       return (
-//         <div className="popover-container" ref={node => { this.node = node; }}>
-//           <button
-//             onClick={this.handleClick}
-//           >
-//             Toggle Popover
-//           </button>
-//           {this.state.popupVisible && (
-//             <div
-//               className="popover"
-//             >
-//               I'm a popover!
-//             </div>
-//            )}
-//         </div>
-//       );
-//     }
-//   }

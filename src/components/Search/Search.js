@@ -185,29 +185,3 @@ class Search extends Component {
     }
 
 export default Search;
-
-
-// /************************************************************************
-//  put this event listener in componentDidMount() {}
-// ************************************************************************/
-// window.addEventListener("itemChanged", event => {
-//   this.setState({ listingId: Number(event.detail.listingId) }, () =>
-//     // call your own get data function. Mine was called getListingReviews
-//     this.getListingReviews()
-//   );
-// });
-// /************************************************************************
-//  whenever you call a handler function that changes the url
-//  ************************************************************************/
-// onSubmit(e, listingId) {
-//   this.setState({query: ''})
-  
-//   // create custom event called itemChanged
-//   const event = new CustomEvent("itemChanged", {
-//     detail: {
-//       listingId
-//     }
-//   });
-//   // dispatch the event
-//   window.dispatchEvent(event);
-// }
