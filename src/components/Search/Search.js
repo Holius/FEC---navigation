@@ -9,6 +9,7 @@ class Search extends Component {
         this.state = { 
             array: [],
             current: [],
+            currentHighlighted: '',
             popular: [],
             query: '',
             show: false,
@@ -50,21 +51,26 @@ class Search extends Component {
           break;
         }
       }
-      this.setState({query: ''});
+     
       if (id !== 0) {
         this.onListingId(event, id) 
+      } else {
+        this.setState({query: '', show: false});
       }
     } 
 
+    onHoverSubmit (event, id, title) {
+      this.setState({query: title, show: false}, () => {
+        this.onListingId(event, id);
+      })
+    }
+
     onListingId(e, listingId) {
-      
-      // create custom event called itemChanged
       const event = new CustomEvent("itemChanged", {
         detail: {
           listingId
         }
       });
-      // dispatch the event
       window.dispatchEvent(event);
     }
 
@@ -93,7 +99,7 @@ class Search extends Component {
             for (let i = 0; i < this.state.array.length; i++) {
               let title = this.state.array[i].title;
               if (title.toLowerCase().startsWith(this.state.query)) {
-                temp.push(title);
+                temp.push(this.state.array[i]);
               }
             }
             this.setState({ current: temp })
@@ -163,6 +169,7 @@ class Search extends Component {
                 query={this.state.query}
                 current={this.state.current}
                 popular={this.state.popular}
+                onHoverSubmit={this.onHoverSubmit.bind(this)}
               />
           </header>
           );

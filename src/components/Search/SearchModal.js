@@ -4,14 +4,10 @@ class SearchModal extends Component {
     constructor(props) {
         super(props);
         this.mainRef = React.createRef();
-        this.state = { 
-            array: [],
-            current: [],
-        }
     }
 
     render () {
-        let {query, show, current, popular} = this.props;
+        let {query, show, current, popular, onHoverSubmit} = this.props;
         if (!show) {
             return null
         } 
@@ -19,7 +15,7 @@ class SearchModal extends Component {
             return (
                 <ul className='searchBox' >
                     <p>Popular Right Now</p> 
-                    {popular.map(x => <li>{x.title}</li>)}
+                    {popular.map(x => <li onClick={onHoverSubmit.bind(null, event, x.listing_id, x.title)}>{x.title}</li>)}
                 </ul>
             )
         } else if (!current.length) {
@@ -32,7 +28,7 @@ class SearchModal extends Component {
         else {
         return (
             <ul className='searchBox'>
-                {current.map( x => <li>{x}</li>)}
+                {current.map( x => <li onClick={onHoverSubmit.bind(null, event, x.listing_id, x.title)}>{x.title}</li>)}
             </ul>
         )
         }
