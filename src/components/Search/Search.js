@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import SearchModal from './SearchModal';
 import axios from 'axios';
 
+import {BrowserRouter as Router, Link} from 'react-router-dom';
+
 class Search extends Component {
     constructor(props) {
         super(props);
@@ -13,7 +15,7 @@ class Search extends Component {
             popular: [],
             query: '',
             show: false,
-            listingId: null,
+            listingId: '',
         }
         this.myRef = React.createRef();
         this.handleClick = this.handleClick.bind(this);
@@ -53,6 +55,7 @@ class Search extends Component {
       }
      
       if (id !== 0) {
+        this.setState({show: false})
         this.onListingId(event, id) 
       } else {
         this.setState({query: '', show: false});
@@ -133,6 +136,7 @@ class Search extends Component {
       
       render() {
           return (
+            <Router>
                 <header 
                   ref={this.myRef}
                   className={'SearchBarFull'}
@@ -149,12 +153,15 @@ class Search extends Component {
                       onChange={this.onSearchChange.bind(this)}
                       onClick={this.handleClick.bind(this)}
                     />
-                    <input
-                      type='image'
-                      className={'searchButton'}
-                      src="mg.png"
-                      onClick={this.onSubmit.bind(this, event)}
-                    />
+                    <Link to={`/${this.state.query}`}>
+                      <input
+                        type='image'
+                        className={'searchButton'}
+                        src="mg.png"
+                        onClick={this.onSubmit.bind(this, event)}
+                      >
+                        </input>
+                    </Link>
                     <i class="fas fa-search"></i>
                    </div> 
                     <h4 className={'signIn'}>Sign in</h4>
@@ -172,6 +179,7 @@ class Search extends Component {
                 onHoverSubmit={this.onHoverSubmit.bind(this)}
               />
           </header>
+          </Router>
           );
       }
 

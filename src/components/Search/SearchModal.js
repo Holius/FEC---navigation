@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 
+import {Link} from 'react-router-dom';
+
+
 class SearchModal extends Component {
     constructor(props) {
         super(props);
@@ -15,7 +18,11 @@ class SearchModal extends Component {
             return (
                 <ul className='searchBox' >
                     <p>Popular Right Now</p> 
-                    {popular.map(x => <li onClick={onHoverSubmit.bind(null, event, x.listing_id, x.title)}>{x.title}</li>)}
+                    {popular.map(x => <li onClick={onHoverSubmit.bind(null, event, x.listing_id, x.title)}>
+                        <Link to={`/${x.listing_id}`}>
+                            {x.title}
+                        </Link>
+                        </li>)}
                 </ul>
             )
         } else if (!current.length) {

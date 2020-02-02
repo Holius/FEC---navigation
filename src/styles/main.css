@@ -2,7 +2,16 @@ body {
     /* background-color: aqua; */
     padding: 0px;
     margin: 0px;
-    color: rgb(60,60,60,1)
+    color:  rgb(68, 68, 68);
+}
+
+a {
+    text-decoration: none;
+    color: rgb(68, 68, 68);
+}
+
+a:visited {
+    color:  rgb(68, 68, 68);
 }
 
 *:focus {
