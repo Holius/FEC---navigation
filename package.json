@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "start-dev": "webpack-dev-server --config ./webpack.config.js --mode development",
     "dev": "webpack -w --mode development",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server-start": "nodemon server.js"
+    "server-start": "nodemon server.js",
+    "start": "node server.js"
   },
   "author": "Sean Meyer",
   "license": "ISC",
