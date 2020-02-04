@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var path = require('path');
-var port = 8081;
+var port = 8080;
 const bodyParser = require('body-parser');
 var mysql = require('mysql');
 
